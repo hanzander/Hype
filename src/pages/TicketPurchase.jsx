@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+git commit -m "initial commit"import { useState, useEffect } from 'react'
 import { useParams, useSearchParams, useNavigate } from 'react-router-dom'
 import { getEventById } from '../data/events'
 import { purchaseTickets } from '../services/ticketService'

@@ -189,7 +189,7 @@
   text-align: center;
   opacity: 0.85;
   max-width: 680px;
-  margin: 0 auto 80px auto;
+  margin: 24px auto 80px auto;
   padding: 0 20px;
   line-height: 1.7;
   font-weight: 400;
@@ -304,6 +304,7 @@
     padding: 0;
     line-height: 1.65;
     letter-spacing: -0.015em;
+    margin-top: 32px;
   }
   
   .events-grid {

@@ -4,6 +4,8 @@
   flex-direction: column;
   background: linear-gradient(to bottom, #F8F9FA 0%, #F2F2F7 100%);
   position: relative;
+  margin: 0;
+  padding: 0;
 }
 
 .main-content {
@@ -37,7 +39,7 @@
   }
   
   .main-content {
-    padding-top: 80px;
+    padding-top: 0;
   }
 }
 

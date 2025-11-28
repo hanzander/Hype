@@ -1,3 +1,63 @@
+/* Top Header with Logo */
+.top-header {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  padding: 16px 20px;
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  height: 72px;
+  box-shadow: none;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.brand-logo:active {
+  opacity: 0.7;
+}
+
+.brand-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 16px;
+  background: transparent;
+  box-shadow: none;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+}
+
+@media (min-width: 768px) {
+  .top-header {
+    padding: 20px 24px;
+    height: 100px;
+  }
+  
+  .brand-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    background: transparent;
+    box-shadow: none;
+    filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.4));
+  }
+  
+  .brand-logo {
+    gap: 0;
+  }
+}
+
 /* Floating Bottom Navigation */
 .bottom-nav {
   position: fixed;

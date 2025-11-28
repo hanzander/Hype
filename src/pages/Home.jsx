@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { events, filterEvents } from '../data/events'
 import EventCard from '../components/EventCard'
 import SearchFilters from '../components/SearchFilters'
@@ -60,10 +61,13 @@ function Home({ favorites, toggleFavorite }) {
   return (
     <div className="home">
       <div className="hero-section" ref={heroRef}>
+        <Link to="/" className="hero-logo">
+          <img src="/hype1.png" alt="Hype" className="hero-logo-icon" />
+        </Link>
         <div className="container">
-          <h1 className="hero-title">Discover Amazing Events</h1>
+          <h1 className="hero-logo-text">hype</h1>
           <p className="hero-subtitle">
-            Curated experiences, exclusive access, unforgettable moments. Your next adventure starts here.
+            Discover amazing events and curated experiences. Your next adventure starts here.
           </p>
         </div>
       </div>

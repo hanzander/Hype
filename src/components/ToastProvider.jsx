@@ -7,9 +7,18 @@ const ToastContext = createContext({
 
 export const ToastProvider = ({ children }) => {
   const [toasts, setToasts] = useState([])
+  const [exitingToasts, setExitingToasts] = useState(new Set())
 
   const removeToast = useCallback((id) => {
-    setToasts((prev) => prev.filter((toast) => toast.id !== id))
+    setExitingToasts((prev) => new Set([...prev, id]))
+    setTimeout(() => {
+      setToasts((prev) => prev.filter((toast) => toast.id !== id))
+      setExitingToasts((prev) => {
+        const next = new Set(prev)
+        next.delete(id)
+        return next
+      })
+    }, 300)
   }, [])
 
   const addToast = useCallback(
@@ -27,7 +36,10 @@ export const ToastProvider = ({ children }) => {
       {children}
       <div className="toast-container" role="status" aria-live="polite">
         {toasts.map((toast) => (
-          <div key={toast.id} className={`toast ${toast.type}`}>
+          <div 
+            key={toast.id} 
+            className={`toast ${toast.type} ${exitingToasts.has(toast.id) ? 'toast-exit' : ''}`}
+          >
             <span>{toast.message}</span>
             <button
               type="button"

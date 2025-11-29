@@ -10,12 +10,14 @@ import CountdownTimer from '../components/CountdownTimer'
 import EventMap from '../components/EventMap'
 import TicketTierList from '../components/TicketTierList'
 import HypeMeter from '../components/HypeMeter'
+import { getResaleListingsForEvent } from '../services/marketplaceService'
 import './EventDetail.css'
 
 function EventDetail({ favorites, toggleFavorite }) {
   const { id } = useParams()
   const navigate = useNavigate()
   const [event, setEvent] = useState(null)
+  const [resaleTiers, setResaleTiers] = useState([])
   const [timeUntil, setTimeUntil] = useState(null)
   const [isVenueSaved, setIsVenueSaved] = useState(false)
   const handleButtonClick = useButtonAnimation()
@@ -33,6 +35,9 @@ function EventDetail({ favorites, toggleFavorite }) {
   useEffect(() => {
     if (event) {
       setIsVenueSaved(checkVenueSaved(event.id))
+      // Build resale/auction listings (frontend-only)
+      const listings = getResaleListingsForEvent(event.id, event.tiers || [])
+      setResaleTiers(listings)
     }
   }, [event])
 
@@ -164,6 +169,11 @@ function EventDetail({ favorites, toggleFavorite }) {
                   <span className="dot">•</span>
                   <span>{event.venue}, {event.city}</span>
                 </div>
+                <div className="resale-badge-row">
+                  <span className="resale-badge">
+                    Second-hand tickets only · Powered by fan-to-fan resale (prototype)
+                  </span>
+                </div>
               </div>
               <button
                 className={`favorite-button ${favorites.includes(event.id) ? 'active' : ''}`}
@@ -267,6 +277,7 @@ function EventDetail({ favorites, toggleFavorite }) {
                 {event.tags.map(tag => (
                   <span key={tag} className="tag">{tag}</span>
                 ))}
+                <span className="tag resale-tag">Second-hand</span>
               </div>
             </section>
           </div>
@@ -275,9 +286,10 @@ function EventDetail({ favorites, toggleFavorite }) {
             <HypeMeter event={event} />
             
             <section className="ticket-section">
-              <h2>Ticket Options</h2>
-              <TicketTierList tiers={event.tiers} onPurchase={handlePurchase} />
+              <h2>Second-hand Ticket Options</h2>
+              <TicketTierList tiers={resaleTiers} onPurchase={handlePurchase} />
             </section>
+
           </div>
         </div>
       </div>

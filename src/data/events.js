@@ -337,7 +337,396 @@ export const events = [
         capacity: 30
       }
     ],
-  }
+  },
+  {
+    id: 'c-old-start-2025-hackathon',
+    title: 'C(old) (St)art 2025 Hackathon',
+    tagline: '48 hours of code, caffeine, and chaos for student builders.',
+    category: 'Chill',
+    tags: ['Hackathon', 'Students', 'Tech'],
+    startTime: '2025-11-29T09:00:00+08:00',
+    endTime: '2025-11-30T21:00:00+08:00',
+    venue: 'The Linden Suites',
+    city: 'Ortigas',
+    address: 'The Linden Suites, Ortigas Center, Pasig City',
+    coordinates: {
+      lat: 14.5867,
+      lng: 121.0563
+    },
+    venueType: 'indoor',
+    accessibility: true,
+    description: 'A student-centered hackathon where teams ship wild prototypes over one weekend, from AI side projects to playful campus tools.',
+    heroColor: '#050816',
+    heroAccent: '#64ffda',
+    hypeScore: 82,
+    cover: '/cs.png',
+    organizer: {
+      name: 'Campus Creators PH',
+      contact: 'hello@campuscreators.ph'
+    },
+    metrics: {
+      views: 1900,
+      buyers: 420,
+      recency: 0.8,
+    },
+    tiers: [
+      {
+        id: 'coldstart-team-pass',
+        name: 'Team Pass',
+        price: 0,
+        currency: 'PHP',
+        availability: 'Available',
+        perks: ['Team of up to 4', 'Meals & swag'],
+        capacity: 200
+      }
+    ],
+  },
+  {
+    id: 'ygg-play-summit',
+    title: 'YGG Play Summit',
+    tagline: 'Web3 gaming, guilds, and play economies in one roof.',
+    category: 'Trending',
+    tags: ['Web3', 'Gaming', 'Conference'],
+    startTime: '2025-09-06T10:00:00+08:00',
+    endTime: '2025-09-06T19:00:00+08:00',
+    venue: 'SMX Convention Center',
+    city: 'Pasay',
+    address: 'SMX Convention Center, SM Mall of Asia Complex, Pasay City',
+    coordinates: {
+      lat: 14.5316,
+      lng: 120.9816
+    },
+    venueType: 'indoor',
+    accessibility: true,
+    description: 'Guild leaders, devs, and players gather for a day of talks, live tournaments, and hands-on demos of the next wave of play-and-own titles.',
+    heroColor: '#05020d',
+    heroAccent: '#ffdd57',
+    hypeScore: 88,
+    cover: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80',
+    organizer: {
+      name: 'Yield Guild Games',
+      contact: 'events@ygg.games'
+    },
+    metrics: {
+      views: 3100,
+      buyers: 1150,
+      recency: 0.9,
+    },
+    tiers: [
+      {
+        id: 'ygg-general',
+        name: 'General Pass',
+        price: 1800,
+        currency: 'PHP',
+        availability: 'Available',
+        perks: ['Main stage access', 'Expo floor', 'Loot quest'],
+        capacity: 1500
+      },
+      {
+        id: 'ygg-vip',
+        name: 'Guild VIP',
+        price: 4200,
+        currency: 'PHP',
+        availability: 'Limited',
+        perks: ['VIP lounge', 'Speaker meet & greet', 'Priority seating'],
+        capacity: 150
+      }
+    ],
+  },
+  {
+    id: 'superai-conference-singapore',
+    title: 'SuperAI Conference',
+    tagline: 'Where frontier AI builders, founders, and researchers collide.',
+    category: 'Fan Favorite',
+    tags: ['AI', 'Conference', 'Founders'],
+    startTime: '2025-07-18T09:00:00+08:00',
+    endTime: '2025-07-19T18:00:00+08:00',
+    venue: 'Marina Bay Sands Expo',
+    city: 'Singapore',
+    address: '10 Bayfront Ave, Singapore',
+    coordinates: {
+      lat: 1.2834,
+      lng: 103.8607
+    },
+    venueType: 'indoor',
+    accessibility: true,
+    description: 'Two days of keynotes, demos, and hallway conversations around AI agents, infrastructure, and real-world deployments.',
+    heroColor: '#040b1a',
+    heroAccent: '#00d4ff',
+    hypeScore: 94,
+    cover: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
+    organizer: {
+      name: 'SuperAI',
+      contact: 'hello@superai.io'
+    },
+    metrics: {
+      views: 5400,
+      buyers: 2100,
+      recency: 0.96,
+    },
+    tiers: [
+      {
+        id: 'superai-standard',
+        name: 'Standard Pass',
+        price: 520,
+        currency: 'USD',
+        availability: 'Available',
+        perks: ['2-day conference', 'Expo', 'Recorded talks'],
+        capacity: 2500
+      },
+      {
+        id: 'superai-founder',
+        name: 'Founder & Operator',
+        price: 780,
+        currency: 'USD',
+        availability: 'Limited',
+        perks: ['Curated networking', 'Private roundtables'],
+        capacity: 500
+      }
+    ],
+  },
+  {
+    id: 'flair-dlsud',
+    title: 'Flair DLSU-D',
+    tagline: 'A campus festival for creators, performers, and student founders.',
+    category: 'Chill',
+    tags: ['Campus', 'Festival', 'Student'],
+    startTime: '2025-09-27T15:00:00+08:00',
+    endTime: '2025-09-27T23:00:00+08:00',
+    venue: 'De La Salle University-Dasmariñas Oval',
+    city: 'Dasmariñas',
+    address: 'DLSU-D, Dasmariñas, Cavite',
+    coordinates: {
+      lat: 14.2995,
+      lng: 120.9571
+    },
+    venueType: 'outdoor',
+    accessibility: true,
+    description: 'An all-evening student fair with live bands, founder booths, art pop-ups, and food trucks under campus lights.',
+    heroColor: '#1b0b2e',
+    heroAccent: '#ff6f91',
+    hypeScore: 79,
+    cover: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1200&q=80',
+    organizer: {
+      name: 'DLSU-D Student Government',
+      contact: 'sg@dlsud.edu.ph'
+    },
+    metrics: {
+      views: 1800,
+      buyers: 750,
+      recency: 0.83,
+    },
+    tiers: [
+      {
+        id: 'flair-gen-ad',
+        name: 'General Admission',
+        price: 350,
+        currency: 'PHP',
+        availability: 'Available',
+        perks: ['Festival access', 'Main stage'],
+        capacity: 4000
+      },
+      {
+        id: 'flair-pit',
+        name: 'Pit Pass',
+        price: 650,
+        currency: 'PHP',
+        availability: 'Limited',
+        perks: ['Front-of-stage pit', 'Exclusive wristband'],
+        capacity: 600
+      }
+    ],
+  },
+  {
+    id: 'paskuhan-up-diliman',
+    title: 'Paskuhan UP Diliman',
+    tagline: 'Lanterns, food stalls, and live acts across the Sunken Garden.',
+    category: 'Fan Favorite',
+    tags: ['Campus', 'Holiday', 'Festival'],
+    startTime: '2025-12-15T16:00:00+08:00',
+    endTime: '2025-12-15T23:59:00+08:00',
+    venue: 'UP Diliman Sunken Garden',
+    city: 'Quezon City',
+    address: 'UP Diliman, Quezon City, Metro Manila',
+    coordinates: {
+      lat: 14.6549,
+      lng: 121.0647
+    },
+    venueType: 'outdoor',
+    accessibility: true,
+    description: 'The iconic year-end Paskuhan with lantern parades, org booths, and bands playing into the night.',
+    heroColor: '#0c1a24',
+    heroAccent: '#ffd166',
+    hypeScore: 92,
+    cover: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80',
+    organizer: {
+      name: 'UP Diliman',
+      contact: 'events@upd.edu.ph'
+    },
+    metrics: {
+      views: 4200,
+      buyers: 1800,
+      recency: 0.9,
+    },
+    tiers: [
+      {
+        id: 'paskuhan-field',
+        name: 'Field Access',
+        price: 250,
+        currency: 'PHP',
+        availability: 'Available',
+        perks: ['Field access', 'Stage viewing'],
+        capacity: 8000
+      },
+      {
+        id: 'paskuhan-grandstand',
+        name: 'Grandstand Seats',
+        price: 450,
+        currency: 'PHP',
+        availability: 'Limited',
+        perks: ['Reserved seating', 'Better stage view'],
+        capacity: 1500
+      }
+    ],
+  },
+  {
+    id: 'malayang-diwa-fest-cvsu',
+    title: 'Malayang Diwa Fest Cavite State University',
+    tagline: 'A day of music, art, and advocacy in CvSU.',
+    category: 'Niche',
+    tags: ['Campus', 'Festival', 'Advocacy'],
+    startTime: '2025-09-13T14:00:00+08:00',
+    endTime: '2025-09-13T22:30:00+08:00',
+    venue: 'Cavite State University Main Campus Grounds',
+    city: 'Indang',
+    address: 'CvSU Main Campus, Indang, Cavite',
+    coordinates: {
+      lat: 14.1926,
+      lng: 120.8764
+    },
+    venueType: 'outdoor',
+    accessibility: true,
+    description: 'A student-organized fest mixing spoken word, campus bands, and org booths centered on free expression and community.',
+    heroColor: '#1c1124',
+    heroAccent: '#f78da7',
+    hypeScore: 76,
+    cover: '/cvsu.jpg',
+    organizer: {
+      name: 'CvSU Central Student Government',
+      contact: 'csg@cvsu.edu.ph'
+    },
+    metrics: {
+      views: 1600,
+      buyers: 620,
+      recency: 0.82,
+    },
+    tiers: [
+      {
+        id: 'malayang-gen-ad',
+        name: 'General Admission',
+        price: 300,
+        currency: 'PHP',
+        availability: 'Available',
+        perks: ['Grounds access', 'Main stage'],
+        capacity: 5000
+      }
+    ],
+  },
+  {
+    id: 'hamilton-manila',
+    title: 'Hamilton',
+    tagline: 'The international tour of the Broadway phenomenon arrives in Manila.',
+    category: 'Fan Favorite',
+    tags: ['Musical', 'Theatre', 'Broadway'],
+    startTime: '2025-06-21T20:00:00+08:00',
+    endTime: '2025-06-21T23:00:00+08:00',
+    venue: 'The Theatre at Solaire',
+    city: 'Parañaque',
+    address: '1 Asean Ave, Parañaque, Metro Manila',
+    coordinates: {
+      lat: 14.5213,
+      lng: 120.9832
+    },
+    venueType: 'indoor',
+    accessibility: true,
+    description: 'Lin-Manuel Miranda’s Tony Award-winning musical about Alexander Hamilton, staged with the original creative team’s touring production.',
+    heroColor: '#1b1206',
+    heroAccent: '#f2c94c',
+    hypeScore: 95,
+    cover: '/ham.jpg',
+    organizer: {
+      name: 'GMG Productions',
+      contact: 'tickets@gmgproductions.com'
+    },
+    metrics: {
+      views: 5800,
+      buyers: 2300,
+      recency: 0.97,
+    },
+    tiers: [
+      {
+        id: 'hamilton-orchestra',
+        name: 'Orchestra',
+        price: 12500,
+        currency: 'PHP',
+        availability: 'Limited',
+        perks: ['Best seats', 'Souvenir playbill'],
+        capacity: 400
+      },
+      {
+        id: 'hamilton-mezzanine',
+        name: 'Mezzanine',
+        price: 8200,
+        currency: 'PHP',
+        availability: 'Available',
+        perks: ['Balcony seating', 'Playbill'],
+        capacity: 600
+      }
+    ],
+  },
+  {
+    id: 'aws-innovation-cup-2025',
+    title: 'AWS Innovation Cup 2025',
+    tagline: 'A builder competition for cloud-native, AI, and startup teams.',
+    category: 'Trending',
+    tags: ['AWS', 'Hackathon', 'Cloud'],
+    startTime: '2025-11-08T09:00:00+08:00',
+    endTime: '2025-11-09T18:00:00+08:00',
+    venue: 'AWS Manila Office & Virtual',
+    city: 'Taguig',
+    address: 'Bonifacio Global City, Taguig, Metro Manila',
+    coordinates: {
+      lat: 14.5491,
+      lng: 121.0463
+    },
+    venueType: 'indoor',
+    accessibility: true,
+    description: 'Teams prototype cloud-native solutions with mentorship from AWS SA\'s and compete for credits, swag, and spotlight time.',
+    heroColor: '#0b1829',
+    heroAccent: '#ff9900',
+    hypeScore: 87,
+    cover: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
+    organizer: {
+      name: 'Amazon Web Services',
+      contact: 'events-asean@amazon.com'
+    },
+    metrics: {
+      views: 2600,
+      buyers: 900,
+      recency: 0.88,
+    },
+    tiers: [
+      {
+        id: 'aws-team-pass',
+        name: 'Team Pass',
+        price: 0,
+        currency: 'PHP',
+        availability: 'Available',
+        perks: ['Team of up to 5', 'Mentorship', 'AWS credits (for winners)'],
+        capacity: 80
+      }
+    ],
+  },
 ]
 
 export const getEventById = (id) => events.find(e => e.id === id)

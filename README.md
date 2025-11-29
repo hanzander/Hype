@@ -1,52 +1,88 @@
+# Hype - Second-Hand Ticket Marketplace
+
+A React-based event ticketing platform with second-hand ticket resale and auction features.
+
+## Features
+
+- 🎫 Second-hand ticket marketplace
+- 🔨 Auction-style bidding system
+- 👥 Fan-to-fan ticket resales
+- 📱 Mobile-responsive design
+- 🎨 Modern iOS-inspired UI
+
 ## Tech Stack
 
-- **Frontend**: React 18 + Vite
-- **Routing**: React Router DOM
-- **QR Codes**: qrcode library
-- **Maps**: Leaflet + React Leaflet
-- **Storage**: localStorage (prototype)
+- React 18
+- Vite
+- React Router DOM
+- React Icons
+- Leaflet (for maps)
 
-## Getting Started
-
-### Installation
+## Development
 
 ```bash
 npm install
-```
-
-### Development
-
-```bash
 npm run dev
 ```
 
-The app will be available at `http://localhost:3000`
-
-### Build
+## Build
 
 ```bash
 npm run build
 ```
 
+## Deployment to Vercel
+
+### Option 1: Deploy via Vercel CLI
+
+1. Install Vercel CLI:
+   ```bash
+   npm i -g vercel
+   ```
+
+2. Login to Vercel:
+   ```bash
+   vercel login
+   ```
+
+3. Deploy:
+   ```bash
+   cd hackathon/Hype
+   vercel
+   ```
+
+4. Follow the prompts to link your project or create a new one.
+
+### Option 2: Deploy via Vercel Dashboard
+
+1. Go to [vercel.com](https://vercel.com) and sign in
+2. Click "Add New Project"
+3. Import your Git repository (GitHub/GitLab/Bitbucket)
+4. Configure:
+   - **Framework Preset**: Vite
+   - **Root Directory**: `hackathon/Hype` (if repo root is `codes/`)
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+   - **Install Command**: `npm install`
+5. Click "Deploy"
+
+### Important Notes
+
+- Static assets (images) are in the `public/` folder
+- The `vercel.json` file handles SPA routing
+- Make sure all image files (`.jpg`, `.png`) are in the `public/` directory
+
 ## Project Structure
 
 ```
-event-catalogue/
+hackathon/Hype/
+├── public/          # Static assets (images)
 ├── src/
-│   ├── components/     # Reusable components
-│   ├── pages/         # Page components
-│   ├── data/          # Hardcoded event data
-│   ├── services/      # Service utilities (tickets, etc.)
-│   └── utils.js       # Helper functions
-├── server/            # (Not used in prototype)
+│   ├── components/ # React components
+│   ├── pages/      # Page components
+│   ├── data/       # Event data
+│   ├── services/   # Business logic
+│   └── utils/      # Utility functions
+├── vercel.json     # Vercel configuration
 └── package.json
 ```
-
-## Prototype Notes
-
-- All data is hardcoded (no backend)
-- Tickets are stored in localStorage
-- QR codes are generated client-side
-- No real payment processing
-- Check-in scanner uses manual entry for demo
-

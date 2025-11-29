@@ -278,6 +278,10 @@
   flex-shrink: 0;
 }
 
+.event-price-free {
+  color: var(--text-primary);
+}
+
 @media (min-width: 768px) {
   .event-card-image {
     height: 280px;

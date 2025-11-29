@@ -30,6 +30,27 @@
   margin-bottom: 12px;
 }
 
+.tier-chip {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  margin-right: 6px;
+  margin-top: 4px;
+}
+
+.tier-chip-resale {
+  background: rgba(52, 199, 89, 0.12);
+  color: #34C759;
+  border: 1px solid rgba(52, 199, 89, 0.4);
+}
+
+.tier-chip-auction {
+  background: rgba(255, 149, 0, 0.12);
+  color: #FF9500;
+  border: 1px solid rgba(255, 149, 0, 0.4);
+}
+
 .tier-name {
   font-size: 17px;
   font-weight: 600;

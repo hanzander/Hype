@@ -77,14 +77,6 @@ function DigitalPass() {
                   <span className="info-label">Venue</span>
                   <span className="info-value">{ticket.venue}</span>
                 </div>
-                <div className="info-row">
-                  <span className="info-label">Location</span>
-                  <span className="info-value">{ticket.city}</span>
-                </div>
-                <div className="info-row">
-                  <span className="info-label">Price</span>
-                  <span className="info-value">{ticket.currency} {ticket.price.toLocaleString()}</span>
-                </div>
               </div>
             </div>
           </div>

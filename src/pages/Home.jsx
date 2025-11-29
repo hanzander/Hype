@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { FcGoogle } from 'react-icons/fc'
+import { FaFacebook } from 'react-icons/fa'
 import { events, filterEvents } from '../data/events'
 import EventCard from '../components/EventCard'
 import SearchFilters from '../components/SearchFilters'
@@ -12,6 +14,12 @@ function Home({ favorites, toggleFavorite }) {
   const [isLoading, setIsLoading] = useState(true)
   const eventsGridRef = useRef(null)
   const heroRef = useRef(null)
+  const [user, setUser] = useState(null)
+  const [showAccountMenu, setShowAccountMenu] = useState(false)
+  const [showAuthModal, setShowAuthModal] = useState(false)
+  const [authMode, setAuthMode] = useState('signin')
+  const [authEmail, setAuthEmail] = useState('')
+  const [authPassword, setAuthPassword] = useState('')
   const [filters, setFilters] = useState({
     category: 'all',
     search: '',
@@ -64,10 +72,35 @@ function Home({ favorites, toggleFavorite }) {
         <Link to="/" className="hero-logo">
           <img src="/hype1.png" alt="Hype" className="hero-logo-icon" />
         </Link>
+        {user ? (
+          <button
+            type="button"
+            className="hero-account-pill"
+            onClick={() => setShowAccountMenu(prev => !prev)}
+          >
+            <div className="hero-account-avatar">
+              {user.email?.charAt(0)?.toUpperCase() || 'U'}
+            </div>
+            <div className="hero-account-text">
+              <span className="hero-account-label">Signed in</span>
+              <span className="hero-account-email">{user.email}</span>
+            </div>
+          </button>
+        ) : (
+          <button
+            className="hero-signin-btn"
+            onClick={() => {
+              setAuthMode('signin')
+              setShowAuthModal(true)
+            }}
+          >
+            Sign in
+          </button>
+        )}
         <div className="container">
           <h1 className="hero-logo-text">hype</h1>
           <p className="hero-subtitle">
-            Discover amazing events and curated experiences. Your next adventure starts here.
+            Second-hand tickets, zero second thoughts.
           </p>
         </div>
       </div>
@@ -100,6 +133,147 @@ function Home({ favorites, toggleFavorite }) {
           </div>
         )}
       </div>
+
+      {user && showAccountMenu && (
+        <div className="hero-account-menu">
+          <button
+            type="button"
+            className="hero-account-menu-item"
+            onClick={() => {
+              setShowAccountMenu(false)
+              setAuthMode('signin')
+              setShowAuthModal(true)
+            }}
+          >
+            Account
+          </button>
+          <button
+            type="button"
+            className="hero-account-menu-item"
+            onClick={() => {
+              setShowAccountMenu(false)
+              setUser(null)
+              setAuthEmail('')
+              setAuthPassword('')
+              setAuthMode('signin')
+              setShowAuthModal(true)
+            }}
+          >
+            Switch account
+          </button>
+          <button
+            type="button"
+            className="hero-account-menu-item"
+            onClick={() => {
+              setShowAccountMenu(false)
+              setUser(null)
+              setAuthEmail('')
+              setAuthPassword('')
+              // Simple prototype alert
+              window.alert('You have been logged out successfully.')
+            }}
+          >
+            Log out
+          </button>
+        </div>
+      )}
+
+      {showAuthModal && (
+        <div className="auth-overlay" onClick={() => setShowAuthModal(false)}>
+          <div
+            className="auth-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="auth-header">
+              <button
+                type="button"
+                className="auth-back-btn"
+                onClick={() => setShowAuthModal(false)}
+                aria-label="Close"
+              >
+                ←
+              </button>
+              <h2>{authMode === 'signin' ? 'Sign in' : 'Create account'}</h2>
+            </div>
+            <p className="auth-subtitle">
+              Use your email or continue with a connected account.
+            </p>
+
+            <form
+              className="auth-form"
+              onSubmit={(e) => {
+                e.preventDefault()
+                if (!authEmail) return
+                setUser({ email: authEmail })
+                setShowAuthModal(false)
+              }}
+            >
+              <label>
+                Email
+                <input
+                  type="email"
+                  required
+                  placeholder="you@example.com"
+                  value={authEmail}
+                  onChange={(e) => setAuthEmail(e.target.value)}
+                />
+              </label>
+              <label>
+                Password
+                <input
+                  type="password"
+                  required
+                  placeholder="••••••••"
+                  value={authPassword}
+                  onChange={(e) => setAuthPassword(e.target.value)}
+                />
+              </label>
+
+              <button type="submit" className="btn btn-primary auth-primary-btn">
+                {authMode === 'signin' ? 'Sign in' : 'Register'}
+              </button>
+            </form>
+
+            <div className="auth-divider">
+              <span></span>
+              <span>or continue with</span>
+              <span></span>
+            </div>
+
+            <div className="auth-social-row">
+              <button
+                type="button"
+                className="auth-social-btn google"
+              >
+                <FcGoogle /> Continue with Google
+              </button>
+              <button
+                type="button"
+                className="auth-social-btn facebook"
+              >
+                <FaFacebook /> Continue with Facebook
+              </button>
+            </div>
+
+            <div className="auth-footer">
+              <span>
+                {authMode === 'signin'
+                  ? "Don't have an account?"
+                  : 'Already have an account?'}
+              </span>
+              <button
+                type="button"
+                className="auth-switch-btn"
+                onClick={() =>
+                  setAuthMode(mode => (mode === 'signin' ? 'register' : 'signin'))
+                }
+              >
+                {authMode === 'signin' ? 'Register now' : 'Sign in'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

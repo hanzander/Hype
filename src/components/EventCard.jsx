@@ -35,6 +35,8 @@ function EventCard({ event, isFavorite, onToggleFavorite }) {
     return colors[category] || '#8E8E93' // gray-1
   }
 
+  const isColdStartHackathon = event.id === 'c-old-start-2025-hackathon'
+
   return (
     <Link to={`/event/${event.id}`} className="event-card">
       <div className="event-card-image">
@@ -85,9 +87,15 @@ function EventCard({ event, isFavorite, onToggleFavorite }) {
           <span className="venue-name">{event.venue}</span>
           <span className="venue-tags">{event.tags.slice(0, 2).join(' · ')}</span>
         </div>
-        <div className="event-price">
-          From {event.tiers[0]?.currency} {event.tiers[0]?.price.toLocaleString()}
-        </div>
+        {isColdStartHackathon ? (
+          <div className="event-price event-price-free">
+            Register
+          </div>
+        ) : (
+          <div className="event-price">
+            From {event.tiers[0]?.currency} {event.tiers[0]?.price.toLocaleString()}
+          </div>
+        )}
       </div>
     </Link>
   )

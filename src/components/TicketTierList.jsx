@@ -3,6 +3,17 @@ import './TicketTierList.css'
 
 function TicketTierList({ tiers, onPurchase }) {
   const handleButtonClick = useButtonAnimation()
+  const formatPriceLabel = (tier) => {
+    // Special case: C(old) (St)art 2025 Hackathon tiers are free registration
+    if (tier.id && tier.id.startsWith('coldstart-')) {
+      return 'Free registration'
+    }
+    if (tier.listingType === 'auction') {
+      const current = tier.currentBid || tier.startingBid || tier.price
+      return `Current bid · ${tier.currency} ${current.toLocaleString()}`
+    }
+    return `${tier.currency} ${tier.price.toLocaleString()}`
+  }
   const getAvailabilityColor = (availability) => {
     const colors = {
       'Available': 'var(--success)',
@@ -19,6 +30,12 @@ function TicketTierList({ tiers, onPurchase }) {
           <div className="tier-header">
             <div>
               <h3 className="tier-name">{tier.name}</h3>
+              {tier.isResale && (
+                <span className="tier-chip tier-chip-resale">Resale</span>
+              )}
+              {tier.listingType === 'auction' && (
+                <span className="tier-chip tier-chip-auction">Auction</span>
+              )}
               <span 
                 className="tier-availability"
                 style={{ color: getAvailabilityColor(tier.availability) }}
@@ -27,8 +44,7 @@ function TicketTierList({ tiers, onPurchase }) {
               </span>
             </div>
             <div className="tier-price">
-              <span className="tier-currency">{tier.currency}</span>
-              <span className="tier-amount">{tier.price.toLocaleString()}</span>
+              <span className="tier-amount">{formatPriceLabel(tier)}</span>
             </div>
           </div>
           
@@ -43,11 +59,17 @@ function TicketTierList({ tiers, onPurchase }) {
           <button
             className="btn btn-primary tier-purchase-btn"
             onClick={(e) => {
-              handleButtonClick(e, () => onPurchase(tier.id))
+              handleButtonClick(e, () => onPurchase(tier.listingId || tier.id))
             }}
             disabled={tier.availability === 'Sold Out'}
           >
-            {tier.availability === 'Sold Out' ? 'Sold Out' : 'Select Tickets'}
+            {tier.availability === 'Sold Out'
+              ? 'Sold Out'
+              : (tier.id && tier.id.startsWith('coldstart-'))
+                ? 'Register'
+                : tier.listingType === 'auction'
+                  ? 'View auction'
+                  : 'Select tickets'}
           </button>
         </div>
       ))}

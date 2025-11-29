@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Home from './pages/Home'
 import EventDetail from './pages/EventDetail'
 import TicketPurchase from './pages/TicketPurchase'
+import SellerCheckout from './pages/SellerCheckout'
 import DigitalPass from './pages/DigitalPass'
 import MyTickets from './pages/MyTickets'
 import CheckInScanner from './pages/CheckInScanner'
@@ -40,6 +41,7 @@ function App() {
               <Route path="/favorites" element={<Favorites favorites={favorites} toggleFavorite={toggleFavorite} />} />
               <Route path="/event/:id" element={<EventDetail favorites={favorites} toggleFavorite={toggleFavorite} />} />
               <Route path="/purchase/:eventId" element={<TicketPurchase />} />
+              <Route path="/purchase/:eventId/seller/:sellerId" element={<SellerCheckout />} />
               <Route path="/ticket/:ticketId" element={<DigitalPass />} />
               <Route path="/my-tickets" element={<MyTickets />} />
               <Route path="/scanner" element={<CheckInScanner />} />
